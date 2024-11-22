@@ -1,1 +1,52 @@
+html{
+    height: 100% !important;
+}
 
+body{
+    display: flex;
+    flex-direction: column;
+    min-height: 100%;
+}
+.logo{
+    width: 10rem;
+    max-height: auto;
+    aspect-ratio: 1 / 1;
+    object-fit: scale-down;
+}
+.hero{
+    position: relative;
+    z-index: 3;
+
+    background-size: cover;
+    background-repeat: no-repeat;
+
+    place-content: center;
+    text-align: center;
+}
+
+.full{
+    display: grid;
+    place-content: center;
+    min-block-size: 108vh;
+}
+
+.hero::before{
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-color: rgba(0, 0, 0, 0.836);
+
+    z-index: -1;
+}
+
+footer li a {
+    text-decoration: none;
+}
+@media only screen and (min-width: 800px) {
+    .mw-80{
+        max-width: 50%;
+    }
+}
+footer{
+    margin-top: auto;
+}
