@@ -6,7 +6,7 @@
     </x-heroImage>
 
     <div class="container my-5 p-5 border">
-        <div class="row">
+        <div class="row gap-5">
             <div class="col">
                 <div>
                     <h4>Telemovel</h4>
@@ -23,26 +23,8 @@
                     </p>
                 </div>
             </div>
-            <div class="col">
-                <form action="" method="post">
-                    <div>
-                        <label for=""></label>
-                        <input type="text">
-                    </div>
-                    <div>
-                        <label for=""></label>
-                        <input type="text">
-                    </div>
-                    <div>
-                        <label for=""></label>
-                        <input type="text">
-                    </div>
-                    <div>
-                        <label for=""></label>
-                        <input type="text">
-                    </div>
-                    <button type="submit">Submit</button>
-                </form>
+            <div class="col p-0">
+                <x-contactForm />
             </div>
         </div>
     </div>

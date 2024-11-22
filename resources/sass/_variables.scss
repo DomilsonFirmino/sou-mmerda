@@ -7,3 +7,11 @@ $secondary: #11550a;
 $font-family-sans-serif: 'Raleway','Nunito', sans-serif;
 $font-size-base: 1.12rem;
 $line-height-base: 1.6;
+
+.aspect-video{
+    aspect-ratio: 1 / 0.32;
+}
+
+.p-0{
+    padding: 0;
+}

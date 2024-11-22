@@ -1,4 +1,3 @@
-<section id="sep"></section>
 <x-section>
     <div class="container">
         <x-heading>QUEM CONFIA EM NÓS?</x-heading>

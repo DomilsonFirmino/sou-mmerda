@@ -4,4 +4,5 @@
     <x-index.servicos />
     <x-index.medida />
     <x-index.politica />
+    <x-index.newsletter />
 </x-layout>
