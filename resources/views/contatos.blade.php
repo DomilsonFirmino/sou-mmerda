@@ -7,7 +7,7 @@
 
     <div class="container my-5 p-5 border">
         <div class="row gap-5">
-            <div class="col">
+            <div class="col-md">
                 <div>
                     <h4>Telemovel</h4>
                     <p>+244 935 793 270</p>
@@ -23,7 +23,7 @@
                     </p>
                 </div>
             </div>
-            <div class="col p-0">
+            <div class="col-md p-0">
                 <x-contactForm />
             </div>
         </div>

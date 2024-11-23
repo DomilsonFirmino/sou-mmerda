@@ -1,5 +1,6 @@
 <h1>Contact Form</h1>
-    <form action="/message">
+    <form action="/message" method="POST">
+        @csrf
         <div>
             <x-input id="name" name="name" label="Your Name" value="{{ old('name')}}" placeholder="email"/>
 

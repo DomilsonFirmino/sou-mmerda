@@ -4,8 +4,9 @@
             <x-heading style="text-align: center">NewsLetter</x-heading>
             <p class="mt-4">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Atque, in! Molestias, fugiat illo repellendus quam, earum ad consectetur quae totam facere maxime quis aperiam odio voluptatem aliquam, distinctio praesentium quidem?</p>
         </div>
-        <form action="/subscribe" class="row align-items-center mt-3 ">
-            <div class="d-md-inline-flex align-items-end justify-content-center gap-3 px-3">
+        <form action="/subscribe" class="row align-items-center mt-3 " id="newsletter">
+
+            <div class="d-md-inline-flex align-items-start justify-content-center gap-3 px-3">
 
                 <x-input id="name" name="name" value="{{ old('name')}}" placeholder="email"/>
 

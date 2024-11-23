@@ -47,6 +47,16 @@ footer li a {
         max-width: 50%;
     }
 }
+@media only screen and (max-width: 800px) {
+    .hero{
+        min-block-size: 60vh !important;
+    }
+    .full{
+        min-block-size: 60vh !important;
+    }
+}
+
+
 footer{
     margin-top: auto;
 }
