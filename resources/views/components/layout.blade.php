@@ -1,3 +1,4 @@
+@props(['bg'=>""])
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -19,7 +20,7 @@
 <body>
 
     <header>
-        <x-navigation/>
+        <x-navigation class="{{ $bg }}"/>
     </header>
 
     <main>{{ $slot }}</main>

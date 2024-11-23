@@ -1,4 +1,5 @@
-<nav class="navbar fixed-top navbar-dark navbar-expand-md pt-sm-4 py-4 " id="navigation">
+
+<nav  {{$attributes->merge(['class'=>'navbar fixed-top navbar-dark navbar-expand-md pt-sm-4 py-4'])}} id="navigation">
 
     <div class="container">
 
@@ -34,26 +35,43 @@
                         </ul>
                     </li>
 
-                    <li class="nav-item">
-                        <a class="nav-link" aria-current="page" href="https://scr.ilungi.ao/">School of corporate reputation</a>
-                    </li>
+                    <x-nav href="https://scr.ilungi.ao/">
+                        School of corporate reputation
+                    </x-nav>
 
-                    <li class="nav-item">
-                        <a class="nav-link" aria-current="page" href="/eventos">Eventos</a>
-                    </li>
+                    <x-nav href="/eventos">
+                        Eventos
+                    </x-nav>
 
-                    <li class="nav-item">
-                        <a class="nav-link" aria-current="page" href="/contatos">Contatos</a>
-                    </li>
+                    <x-nav href="/contatos">
+                        Contatos
+                    </x-nav>
 
                     @guest
-                        <li class="nav-item">
-                            <a class="nav-link" aria-current="page" href="/register">Register</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" aria-current="page" href="/login">Login</a>
-                        </li>
+                        <x-nav href="/register">
+                            Register
+                        </x-nav>
+                        
+                        <x-nav href="/login">
+                            Login
+                        </x-nav>
+
                     @endguest
+
+                    @auth
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                {{ Auth::user()->name}}
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" style="font-weight: 600" href="/profile">profile</a></li>
+                                <form action="/logout" method="post">
+                                    @csrf
+                                    <button class="dropdown-item" style="font-weight: 600" type="submit">Logout</button>
+                                </form>
+                            </ul>
+                        </li>
+                    @endauth
 
                 </ul>
             </div>
