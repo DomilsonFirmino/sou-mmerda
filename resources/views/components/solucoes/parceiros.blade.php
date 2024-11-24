@@ -12,6 +12,6 @@
             Fornecimento e Desenvolvimento de Soluções Tecnológicas à Medida
         </h2>
         <p class="my-4">O serviço de fornecimento e desenvolvimento de soluções tecnológicas à medida consiste em oferecer soluções personalizadas e adaptadas às necessidades específicas das empresas.</p>
-        <a href="#" class="link-primary">Baixar Brochura</a>
+        <a href="#" class="link-secondary">Baixar Brochura</a>
     </div>
 </x-layout>

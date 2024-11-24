@@ -13,19 +13,19 @@
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
 
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        <a class="nav-link dropdown-toggle" href="/servicos" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                             Serviços
                         </a>
                         <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" style="font-weight: 600" href="/servicos/gestao">Apoio a gestão</a></li>
-                            <li><a class="dropdown-item" style="font-weight: 600" href="/servicos/formacao">Formações a medida</a></li>
-                            <li><a class="dropdown-item" style="font-weight: 600" href="/servicos/consultoria">Inovação a melhoria</a></li>
-                            <li><a class="dropdown-item" style="font-weight: 600" href="/servicos/branding">Procurement</a></li>
+                            <li><a class="dropdown-item" href="/servicos/gestao">Apoio a gestão</a></li>
+                            <li><a class="dropdown-item" href="/servicos/formacao">Formações a medida</a></li>
+                            <li><a class="dropdown-item" href="/servicos/consultoria">Inovação a melhoria</a></li>
+                            <li><a class="dropdown-item" href="/servicos/branding">Procurement</a></li>
                         </ul>
                     </li>
 
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        <a class="nav-link dropdown-toggle" href="/solucoes" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                             Soluções
                         </a>
                         <ul class="dropdown-menu">
@@ -64,6 +64,9 @@
                                 {{ Auth::user()->name}}
                             </a>
                             <ul class="dropdown-menu">
+                               @if (Auth::user()->role == "admin")
+                                <li><a class="dropdown-item" style="font-weight: 600" href="/dashboard">dasboard</a></li>
+                               @endif
                                 <li><a class="dropdown-item" style="font-weight: 600" href="/profile">profile</a></li>
                                 <form action="/logout" method="post">
                                     @csrf
