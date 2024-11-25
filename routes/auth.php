@@ -10,3 +10,7 @@ Route::get("/login",[AuthController::class,'login'])->middleware('guest')->name(
 Route::post("/login",[AuthController::class,'loginStore'])->middleware('guest');
 
 Route::post("/logout", [AuthController::class,'destroy'])->middleware('auth');
+
+Route::get("/profile", function(){
+    return view("components.admin.profile");
+})->middleware("auth");

@@ -16,9 +16,13 @@ Route::get('/servicos/formacao', function () {
     return view('components.servicos.formacoes',['cursos'=>$cursos]);
 });
 
+Route::get('/servicos/formacao/curso/{curso}', function (Curso $curso) {
+    return view("components.servicos.curso",['curso'=>$curso]);
+});
 
-Route::get('/servicos/formacao/{id}', function (int $id) {
-    return view('components.servicos.formacoes');
+Route::get('/servicos/formacao/curso/{name}/download', function (string $name) {
+    $filePath = public_path("storage/chess.pdf");
+    return response()->download($filePath);
 })->middleware('auth');
 
 Route::get('/servicos/consultoria', function () {

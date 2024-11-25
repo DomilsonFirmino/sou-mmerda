@@ -21,6 +21,7 @@ class CursoFactory extends Factory
             'name'=>fake()->name(),
             'carga'=>fake()->randomDigit(['5']),
             'user_id'=> User::factory(),
+            'body' =>fake()->text(),
             'certificado'=>fake()->company(),
             'url'=>fake()->url()
         ];

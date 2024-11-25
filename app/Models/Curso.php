@@ -13,6 +13,7 @@ class Curso extends Model
     protected $fillable = [
         'name',
         'carga',
+        'body',
         'certificado',
         'url'
     ];

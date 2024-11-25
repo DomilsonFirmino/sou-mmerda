@@ -51,7 +51,7 @@
                         <x-nav href="/register">
                             Register
                         </x-nav>
-                        
+
                         <x-nav href="/login">
                             Login
                         </x-nav>
