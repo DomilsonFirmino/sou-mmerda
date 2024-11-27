@@ -1,7 +1,9 @@
-@props(['name', 'size' => '100vh'])
+@props(['name'=>'', 'size' => '100vh','url'=>''])
 
 @php
-    $url = asset("images/".$name);
+    if($url == ''){
+        $url = asset("images/".$name);
+    }
 @endphp
 
 

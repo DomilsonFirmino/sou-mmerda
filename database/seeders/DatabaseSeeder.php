@@ -26,8 +26,5 @@ class DatabaseSeeder extends Seeder
 
         User::factory(5)->create();
         Subscriber::factory(5)->create();
-        Curso::factory(5)->create([
-            'user_id' => $user->id
-        ]);
     }
 }

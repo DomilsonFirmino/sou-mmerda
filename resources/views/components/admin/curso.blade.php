@@ -2,11 +2,10 @@
 
     <div style="padding-block: 2rem; margin-right: 2rem">
 
-
-
         <a href="/dashboard/cursos">Voltar</a>
 
-        <div class="mt-5"><img src= {{ url('storage/'.$curso->img) }} class="img-fluid aspect-square" style="object-position: center;object-fit: cover;height:10rem; aspect-ratio: 2 / 1; overflow: hidden" /></div>
+        <div class="mt-5">
+            <img src={{ url('storage/'.$curso->img) }} class="img-fluid aspect-square" style="object-position: center;object-fit: cover;height:10rem; aspect-ratio: 2 / 1; overflow: hidden" /></div>
 
         <div class="pt-5">
             <x-heading>{{ $curso->name }}</x-heading>

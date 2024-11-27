@@ -1,3 +1,7 @@
+@section('title')
+    {{ " | Dashboard - cursos / create"}}
+@endsection
+
 <x-layoutAdmin>
 
     <x-heading> Adicionar curso </x-heading>

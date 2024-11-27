@@ -1,3 +1,7 @@
+@section('title')
+    {{ " | contatos" }}
+@endsection
+
 <x-layout>
     <x-heroImage name="contactos.jpg" size="50vh" class="separator">
         <div class="container" style="padding-top: 8rem">

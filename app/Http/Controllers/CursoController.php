@@ -6,7 +6,7 @@ use App\Models\Curso;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Validation\Rules\File;
+use Illuminate\Support\Facades\File;
 
 class CursoController extends Controller
 {
@@ -32,8 +32,8 @@ class CursoController extends Controller
             'carga'=>'required',
             'body'=>'required',
             'certificado'=>'required',
-            'programa' =>['required' , File::types(['pdf']), 'max:3024'],
-            'img'=>['required' , File::types(['png','jpg']), 'max:3024']
+            'programa' =>['required' , 'mimes:pdf', 'max:3024'],
+            'img'=>['required' , 'mimes:jpeg,bmp,png', 'max:3024']
         ]);
 
         $pathLogo = $request->img->store('cursos/imagens');
@@ -50,7 +50,7 @@ class CursoController extends Controller
             'img'=> $pathLogo
         ]);
 
-        return view("components.admin.cursos");
+        return redirect("/dashboard/cursos");
 
     }
 
@@ -71,14 +71,20 @@ class CursoController extends Controller
             'carga'=>'required',
             'body'=>'required',
             'certificado'=>'required',
-            'programa' =>['required' , File::types(['pdf']), 'max:3024'],
-            'img'=>['required' , File::types(['png','jpg']), 'max:3024']
+            'programa' =>['required' , 'mimes:pdf', 'max:3024'],
+            'img'=>['required' , 'mimes:jpeg,bmp,png', 'max:3024']
         ]);
 
         $pathLogo = $request->img->store('cursos/imagens');
         $pathPrograma = $request->programa->store('cursos/pdf');
 
         $user = User::find(Auth::user()->id);
+
+        $pdf = public_path("storage\\$curso->programa");
+        $img = public_path("storage\\$curso->img");
+    
+        File::delete($pdf);
+        File::delete($img);
 
         $user->cursos()->update([
             'name'=>$request->name,
@@ -89,7 +95,7 @@ class CursoController extends Controller
             'img'=> $pathLogo
         ]);
 
-        return view("components.admin.cursos");
+        return redirect("/dashboard/cursos");
 
     }
 
@@ -105,6 +111,13 @@ class CursoController extends Controller
         $this->redirect();
 
         $curso = Curso::findOrFail($id);
+
+        $pdf = public_path("storage\\$curso->programa");
+        $img = public_path("storage\\$curso->img");
+    
+        File::delete($pdf);
+        File::delete($img);
+
         $curso->delete();
         return redirect("/dashboard/cursos");
     }

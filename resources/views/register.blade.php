@@ -1,3 +1,7 @@
+@section('title')
+    {{ " | Register" }}
+@endsection
+
 <x-layout bg="bg-secondary">
     
     <div class="container" style="padding-bottom: 3rem; padding-top: 10rem">

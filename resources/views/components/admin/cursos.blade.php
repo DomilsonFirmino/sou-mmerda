@@ -1,3 +1,7 @@
+@section('title')
+    {{ " | Dashboard - cursos"}}
+@endsection
+
 <x-layoutAdmin>
 
     <x-heading>
@@ -25,7 +29,7 @@
               </tr>
             </thead>
             <tbody>
-                @foreach ($cursos as $curso )
+                @foreach ($cursos as $curso)
                     <x-tableRowCurso name="{{$curso->name}}" carga="{{$curso->carga}}" cert="{{ $curso->certificado}}" data="{{$curso->created_at}}" id="{{$curso->id}}"/>
                 @endforeach
             </tbody>

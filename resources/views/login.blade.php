@@ -1,3 +1,7 @@
+@section('title')
+    {{ " | Login" }}
+@endsection
+
 <x-layout bg="bg-secondary">
     
     <div class="container" style="padding-bottom: 4rem; padding-top: 8rem">
