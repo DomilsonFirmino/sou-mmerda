@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CursoController;
 use App\Models\Curso;
 use Illuminate\Support\Facades\Route;
 
@@ -20,10 +21,7 @@ Route::get('/servicos/formacao/curso/{curso}', function (Curso $curso) {
     return view("components.servicos.curso",['curso'=>$curso]);
 });
 
-Route::get('/servicos/formacao/curso/{name}/download', function (string $name) {
-    $filePath = public_path("storage/chess.pdf");
-    return response()->download($filePath);
-})->middleware('auth');
+Route::get('/servicos/formacao/curso/{curso}/download', [CursoController::class,'download'])->middleware('auth');
 
 Route::get('/servicos/consultoria', function () {
     return view('index');

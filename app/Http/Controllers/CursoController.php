@@ -3,8 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Models\Curso;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Validation\Rules\File;
 
 class CursoController extends Controller
 {
@@ -30,12 +32,81 @@ class CursoController extends Controller
             'carga'=>'required',
             'body'=>'required',
             'certificado'=>'required',
-            'programa' =>'required',
-            'img'=>'required'
+            'programa' =>['required' , File::types(['pdf']), 'max:3024'],
+            'img'=>['required' , File::types(['png','jpg']), 'max:3024']
         ]);
 
-        return view("components.admin.cursosform");
+        $pathLogo = $request->img->store('cursos/imagens');
+        $pathPrograma = $request->programa->store('cursos/pdf');
 
+        $user = User::find(Auth::user()->id);
+
+        $user->cursos()->create([
+            'name'=>$request->name,
+            'carga'=>$request->carga,
+            'body'=>$request->body,
+            'certificado'=>$request->certificado,
+            'programa' => $pathPrograma,
+            'img'=> $pathLogo
+        ]);
+
+        return view("components.admin.cursos");
+
+    }
+
+    public function show(Curso $curso){
+        $this->redirect();
+        return view("components.admin.curso",['curso'=>$curso]);
+    }
+
+    public function edit(Curso $curso){
+        return view("components.admin.cursosedit",['curso'=>$curso]);
+    }
+
+    public function update(Request $request, Curso $curso){
+        $this->redirect();
+
+        $request->validate([
+            'name'=>'required',
+            'carga'=>'required',
+            'body'=>'required',
+            'certificado'=>'required',
+            'programa' =>['required' , File::types(['pdf']), 'max:3024'],
+            'img'=>['required' , File::types(['png','jpg']), 'max:3024']
+        ]);
+
+        $pathLogo = $request->img->store('cursos/imagens');
+        $pathPrograma = $request->programa->store('cursos/pdf');
+
+        $user = User::find(Auth::user()->id);
+
+        $user->cursos()->update([
+            'name'=>$request->name,
+            'carga'=>$request->carga,
+            'body'=>$request->body,
+            'certificado'=>$request->certificado,
+            'programa' => $pathPrograma,
+            'img'=> $pathLogo
+        ]);
+
+        return view("components.admin.cursos");
+
+    }
+
+    public function download(Curso $curso){
+        $this->redirect();
+
+        $filePath = public_path("storage\\$curso->programa");
+
+        return response()->download($filePath);
+    }
+
+    public function destroy($id){
+        $this->redirect();
+
+        $curso = Curso::findOrFail($id);
+        $curso->delete();
+        return redirect("/dashboard/cursos");
     }
 
     public function redirect(){

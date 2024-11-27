@@ -40,7 +40,11 @@ Route::get("/dashboard/subscrivers", function(){
 Route::get("/dashboard/cursos",[CursoController::class,'index'])->middleware('auth');
 Route::get("/dashboard/cursos/create",[CursoController::class,'create'])->middleware('auth');
 Route::post("/dashboard/cursos",[CursoController::class,'store'])->middleware('auth');
-
+Route::get("/dashboard/cursos/{curso}",[CursoController::class,'show'])->middleware('auth');
+Route::get("/dashboard/cursos/{curso}/edit",[CursoController::class,'edit'])->middleware('auth');
+Route::get("/dashboard/cursos/{curso}/download",[CursoController::class,'download'])->middleware('auth');
+Route::patch("/dashboard/cursos/{curso}",[CursoController::class,'update'])->middleware('auth');
+Route::delete("/dashboard/cursos/{curso}",[CursoController::class,'destroy'])->middleware('auth');
 
 Route::get("/dashboard/eventos", function(){
     if(Auth::user()->role !== "admin"){
