@@ -37,5 +37,7 @@
                 <p></p>
             </div>
         </div>
+
+        <p class="text-white">{{request()->is(Str::substr("/contatos",1)) ? "active": ""}}</p>
     </div>
 </footer>

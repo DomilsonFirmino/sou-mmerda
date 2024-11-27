@@ -1,4 +1,5 @@
 @props(['bg'=>""])
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -27,41 +28,16 @@
             </a>
             <hr>
             <ul class="nav nav-pills flex-column mb-auto">
-              <li class="nav-item">
-                <a href="/dashboard" class="nav-link active" aria-current="page">
-                  <svg class="bi me-2" width="16" height="16"><use xlink:href="#home"></use></svg>
-                  Home
-                </a>
-              </li>
-              <li>
-                <a href="/dashboard/users" class="nav-link link-dark">
-                  <svg class="bi me-2" width="16" height="16"><use xlink:href="#speedometer2"></use></svg>
-                  Users
-                </a>
-              </li>
-              <li>
-                <a href="/dashboard/subscrivers" class="nav-link link-dark">
-                  <svg class="bi me-2" width="16" height="16"><use xlink:href="#table"></use></svg>
-                  Subscrivers
-                </a>
-              </li>
-              <li>
-                <a href="/dashboard/cursos" class="nav-link link-dark">
-                  <svg class="bi me-2" width="16" height="16"><use xlink:href="#grid"></use></svg>
-                  Cursos
-                </a>
-              </li>
-              <li>
-                <a href="/dashboard/eventos" class="nav-link link-dark">
-                  <svg class="bi me-2" width="16" height="16"><use xlink:href="#people-circle"></use></svg>
-                  Eventos
-                </a>
-              </li>
+              <x-navadmin href="dashboard">Overview</x-navadmin>
+              <x-navadmin href="dashboard/users" class="nav-link link-dark">Users</x-navadmin>
+              <x-navadmin href="dashboard/subscrivers">Subscrivers</x-navadmin>
+              <x-navadmin href="dashboard/cursos">Cursos</x-navadmin>
+              <x-navadmin href="dashboard/eventos">Eventos</x-navadmin>
             </ul>
             <hr>
             <div class="dropdown">
               <a href="#" class="d-flex align-items-center link-dark text-decoration-none dropdown-toggle" id="dropdownUser2" data-bs-toggle="dropdown" aria-expanded="false">
-                <img src="https://github.com/mdo.png" alt="" width="32" height="32" class="rounded-circle me-2">
+                {{-- <img src="https://github.com/mdo.png" alt="" width="32" height="32" class="rounded-circle me-2"> --}}
                 <strong>{{ Auth::user()->name}}</strong>
               </a>
               <ul class="dropdown-menu text-small shadow" aria-labelledby="dropdownUser2" style="">
@@ -79,7 +55,7 @@
             </div>
         </div>
 
-        <div class="col" style="overflow-y: auto; padding-left: 3rem; padding-top: 5rem">
+        <div class="col" style="overflow-y: auto; padding-left: 3rem; padding-top: 2rem">
             {{ $slot }}
         </div>
 

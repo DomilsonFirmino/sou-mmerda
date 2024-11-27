@@ -45,7 +45,7 @@ class AuthController extends Controller
 
         Auth::login($user);
 
-        return redirect("/")->with('message',['Conta criada com sucesso']);
+        return redirect()->back()->with('message',['Conta criada com sucesso']);
         
     }
 
@@ -64,7 +64,7 @@ class AuthController extends Controller
                 return redirect("/dashboard");
             }
             
-            return redirect("/");
+            return redirect()->back();
         }
 
         return back()->withErrors([

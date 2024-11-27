@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CursoController;
 use App\Models\Curso;
 use App\Models\Subscriber;
 use App\Models\User;
@@ -13,7 +14,7 @@ Route::get("/dashboard", function(){
     $user = User::where('role','user')->get();
     $subs = Subscriber::all();
     $cursos = Curso::with('user')->get();
-    return view("components.admin.home",['users'=>$user,'subs'=>$subs, 'cursos'=>$cursos]);
+    return view("components.admin.home",['users'=>$user,'subs'=>$subs, 'cursos'=>$cursos,'eventos'=>$cursos]);
 })->middleware('auth');
 
 Route::get("/dashboard/users", function(){
@@ -36,14 +37,10 @@ Route::get("/dashboard/subscrivers", function(){
 })->middleware('auth');
 
 
-Route::get("/dashboard/cursos", function(){
-    if(Auth::user()->role !== "admin"){
-        return redirect("/");
-    }
+Route::get("/dashboard/cursos",[CursoController::class,'index'])->middleware('auth');
+Route::get("/dashboard/cursos/create",[CursoController::class,'create'])->middleware('auth');
+Route::post("/dashboard/cursos",[CursoController::class,'store'])->middleware('auth');
 
-    $cursos = Curso::with('user')->latest()->get();
-    return view("components.admin.cursos",['cursos'=>$cursos]);
-})->middleware('auth');
 
 Route::get("/dashboard/eventos", function(){
     if(Auth::user()->role !== "admin"){

@@ -19,7 +19,8 @@ return new class extends Migration
             $table->integer('carga');
             $table->text('body');
             $table->string('certificado');
-            $table->string('url');
+            $table->string('img');
+            $table->string('programa');
             $table->timestamps();
         });
     }

@@ -15,7 +15,8 @@ class Curso extends Model
         'carga',
         'body',
         'certificado',
-        'url'
+        'img',
+        'programa'
     ];
 
     public function user(){

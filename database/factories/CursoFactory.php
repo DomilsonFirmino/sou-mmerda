@@ -23,7 +23,8 @@ class CursoFactory extends Factory
             'user_id'=> User::factory(),
             'body' =>fake()->text(),
             'certificado'=>fake()->company(),
-            'url'=>fake()->url()
+            'img'=>fake()->url(),
+            'programa'=>fake()->url()
         ];
     }
 }
