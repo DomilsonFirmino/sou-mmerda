@@ -2,6 +2,10 @@ html{
     height: 100% !important;
 }
 
+html:has(dialog[open]){
+    overflow: hidden;
+}
+
 body{
     display: flex;
     flex-direction: column;
@@ -35,29 +39,72 @@ body{
     position: absolute;
     inset: 0;
     background-color: rgba(0, 0, 0, 0.836);
-
     z-index: -1;
 }
 
 .dashboard{
     display: flex;
     flex-wrap: nowrap;
-    height: 100vh;
+    height: 100vh !important;
     height: -webkit-fill-available;
     max-height: 100vh;
     overflow-x: auto;
     overflow-y: hidden;
 }
-.cardOverlap{
-    text-decoration: none;
-    border: 1px solid black;
-    border-radius: .25rem;
-    width: 100%;
-    max-width: 20rem;
-    aspect-ratio: 1 / 1;
+
+.overlap{
+    border-radius: .5rem;
+    overflow: hidden;
 
     display: grid;
-    grid-template-columns: repeat(5, 1fr);
+    grid-template-columns: repeat(4, 1fr);
+
+    position: relative;
+    z-index: 3;
+
+    max-width: 18rem;
+
+    aspect-ratio: 1 / 1.2;
+}
+.overlap::before{
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-color: rgba(0, 0, 0, 0.875);
+
+    z-index: -1;
+
+    border-radius: .25rem;
+}
+
+.overlapimg img{
+    z-index: 1;
+    filter: brightness(30%);
+    object-fit: cover;
+    height: 100%;
+}
+
+.overlap > * {
+    grid-row: 1 / -1;
+    grid-column: 1 / -1;
+}
+
+
+.overlap > a {
+    display: block;
+    place-self: center;
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    transition: all 3ms ease-in-out;
+
+    z-index: 3;
+
+    letter-spacing: .25ch;
+}
+
+.overlap > a:hover{
+    color: #11550a;
 }
 
 footer li a {
@@ -79,4 +126,18 @@ footer li a {
 
 footer{
     margin-top: auto;
+}
+
+
+dialog{
+    border: 1px solid black;
+    border-radius: .5rem;
+
+    padding: 1.5rem;
+}
+
+dialog::backdrop{
+
+    background-color: rgba(0, 0, 0, 0.875);
+    backdrop-filter: blur(4px);
 }

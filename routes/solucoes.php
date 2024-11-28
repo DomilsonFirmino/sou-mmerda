@@ -8,7 +8,7 @@ Route::get('/solucoes', function () {
 Route::get('/solucoes/gefor', function () {
     return view('components.solucoes.gefor');
 });
-Route::get('/solucoes/parceiros', function () {
+Route::get('/solucoes/solucoesamedida', function () {
     return view('components.solucoes.parceiros');
 });
 Route::get('/solucoes/siclic', function () {

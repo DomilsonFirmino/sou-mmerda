@@ -1,3 +1,7 @@
+@section('title')
+    {{ " | Dashboard -  / editar"}}
+@endsection
+
 <x-layoutAdmin>
 
     <x-heading> Editar curso </x-heading>

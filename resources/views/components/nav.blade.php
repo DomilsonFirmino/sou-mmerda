@@ -5,5 +5,5 @@
 @endphp
 
 <li class="nav-item">
-    <a {{ $attributes->merge(['class'=>'nav-link '.$status])}} aria-current="page" href="/{{$href}}">{{ $slot }}</a>
+    <a {{ $attributes->merge(['class'=>'nav-link '.$status])}} aria-current="page" href="{{$href}}">{{ $slot }}</a>
 </li>

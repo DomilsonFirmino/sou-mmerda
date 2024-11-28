@@ -9,7 +9,7 @@
                     conhecer serviços
                 </p>
 
-                <x-button>Conhecer Serviços</x-button>
+                <x-button url="/servicos">Conhecer Serviços</x-button>
             </div>
             <div class="col-md text-center">
                 <img src="{{url('/images/shakingHands.jpg')}}" alt="Image" class="img-fluid rounded-3"/>

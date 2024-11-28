@@ -1,5 +1,5 @@
 @section('title')
-    {{ " | Formações" }}
+    {{ " | Formações " }}
 @endsection
 
 <x-layout>
@@ -7,7 +7,7 @@
 
     <section id="sep"></section>
 
-    <x-heroImage name="Siclic.png" size="60vh" id="sep">
+    <x-heroImage name="formacoes.jpg" size="60vh" id="sep">
         <div class="container" style="padding-top: 4rem">
             <h2 class="uppercase text-white text-uppercase">Formações</h2>
         </div>
@@ -17,7 +17,7 @@
         <h3 class="text-center" style="font-weight: 600">Tabela de cursos</h3>
 
         <div class="cursos table-responsive-sm mt-5">
-            
+
             <table class="table table-bordered table-hover">
                 <thead class="thead-light">
                   <tr>

@@ -17,10 +17,10 @@
                             Serviços
                         </a>
                         <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="/servicos/gestao">Apoio a gestão</a></li>
+                            <li><a class="dropdown-item" href="/servicos/apoioagestao">Apoio a gestão</a></li>
                             <li><a class="dropdown-item" href="/servicos/formacao">Formações a medida</a></li>
-                            <li><a class="dropdown-item" href="/servicos/consultoria">Inovação a melhoria</a></li>
-                            <li><a class="dropdown-item" href="/servicos/branding">Procurement</a></li>
+                            <li><a class="dropdown-item" href="/servicos/inovacao">Inovação a melhoria</a></li>
+                            <li><a class="dropdown-item" href="/servicos/procurement">Procurement</a></li>
                         </ul>
                     </li>
 
@@ -31,7 +31,7 @@
                         <ul class="dropdown-menu">
                             <li><a class="dropdown-item" href="/solucoes/siclic">SICLIC</a></li>
                             <li><a class="dropdown-item" href="/solucoes/gefor">GEFOR</a></li>
-                            <li><a class="dropdown-item" href="/solucoes/parceiros">Soluções a medida</a></li>
+                            <li><a class="dropdown-item" href="/solucoes/solucoesamedida">Soluções a medida</a></li>
                         </ul>
                     </li>
 
@@ -39,20 +39,20 @@
                         School of corporate reputation
                     </x-nav>
 
-                    <x-nav href="eventos">
+                    <x-nav href="/eventos">
                         Eventos
                     </x-nav>
 
-                    <x-nav href="contatos">
+                    <x-nav href="/contatos">
                         Contatos
                     </x-nav>
 
                     @guest
-                        <x-nav href="register">
+                        <x-nav href="/register">
                             Register
                         </x-nav>
 
-                        <x-nav href="login">
+                        <x-nav href="/login">
                             Login
                         </x-nav>
 

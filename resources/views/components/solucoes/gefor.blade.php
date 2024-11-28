@@ -2,7 +2,7 @@
 {{ " | Gefor" }}
 @endsection
 <x-layout>
-    <x-heroImage name="Siclic.png" size="35vh" id="sep">
+    <x-heroImage name="agenda.jpg" size="50vh">
         <div class="container" style="padding-top: 4rem">
             <h2 class="uppercase text-white text-uppercase">Gefor</h2>
         </div>

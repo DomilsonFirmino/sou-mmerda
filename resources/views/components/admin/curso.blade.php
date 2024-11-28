@@ -1,3 +1,7 @@
+@section('title')
+    {{ " | Dashboard -".$curso->name }}
+@endsection
+
 <x-layoutAdmin>
 
     <div style="padding-block: 2rem; margin-right: 2rem">
@@ -26,11 +30,27 @@
 
         <div class="d-sm-flex gap-2 mt-3">
             <a href="/dashboard/cursos/{{$curso->id}}/edit" class="btn btn-secondary">editar</a>
-            <form action="/dashboard/cursos/{{$curso->id}}" method="post">
-                @csrf
-                @method('delete')
-                <button type="submit" class="btn btn-danger">apagar</button>
-            </form>
+            <button class="btn-danger btn" id="show">
+                apagar
+            </button>
+
+            <dialog>
+                <div>
+                    <x-headingtwo>Tem certeza ?</x-headingtwo>
+                    <p>Tem certeza que deseja remover este curso ?</p>
+                </div>
+                <div class="mt-3 d-sm-flex justify-content-center gap-2">
+
+                    <button class="btn btn-success" id="close">cancelar</button>
+
+                    <form action="/dashboard/cursos/{{$curso->id}}"  method="POST">
+                        @csrf
+                        @method('delete')
+                        <button type="submit" class="btn btn-danger">apagar</button>
+                    </form>
+
+                </div>
+            </dialog>
         </div>
 
     </div>

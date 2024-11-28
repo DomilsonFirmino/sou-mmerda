@@ -1,6 +1,6 @@
 <footer class="bg-primary py-4 text-white">
     <div class="container">
-        <div class="row gx-5">
+        <div class="row gx-sm-5">
             <div class="col-sm">
                 <a class="navbar-brand" href="/">
                     <img src="{{url('/images/ilungi.png')}}" alt="ilungi" class="d-block" style="width: 6rem">
@@ -13,8 +13,8 @@
                     <li><a href="/" class="text-white">Início</a></li>
                     <li><a href="/servicos" class="text-white">Serviços</a></li>
                     <li><a href="/solucoes" class="text-white">Soluções</a></li>
-                    <li><a href="/contatos" class="text-white">Contatos</a></li>
                     <li><a href="/eventos" class="text-white">Eventos</a></li>
+                    <li><a href="/contatos" class="text-white">Contatos</a></li>
                 </ul>
             </div>
             <div class="col-sm">
