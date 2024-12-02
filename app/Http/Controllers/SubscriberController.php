@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Mail\subscribed;
 use App\Models\Subscriber;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Mail;
 
 use function PHPUnit\Framework\isEmpty;
@@ -12,6 +13,12 @@ use function PHPUnit\Framework\isEmpty;
 class SubscriberController extends Controller
 {
 
+    public function index(){
+        $this->redirect();
+
+        $subs = Subscriber::query()->latest()->get();
+        return view("components.admin.subscrivers",['subs'=>$subs]);
+    }
     public function store(Request $request)
     {
         $validator = validator($request->all(),[
@@ -61,6 +68,10 @@ class SubscriberController extends Controller
 
     }
 
+    public function destroy(Subscriber $subscriber){
+        $subscriber->delete();
+        return redirect("/dashboard/subscrivers");
+    }
 
     public function cancel(string $delete){
 
@@ -71,5 +82,12 @@ class SubscriberController extends Controller
 
         return redirect()->back()->with('mesage', 'You have unsubscrived');
 
+    }
+
+
+    public function redirect(){
+        if(Auth::user()->role !== "admin"){
+            return redirect("/");
+        }
     }
 }

@@ -2,7 +2,7 @@
 
 namespace Database\Seeders;
 
-use App\Models\Curso;
+use App\Models\Evento;
 use App\Models\Subscriber;
 use App\Models\User;
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
@@ -17,7 +17,7 @@ class DatabaseSeeder extends Seeder
     {
         // User::factory(10)->create();
 
-        $user = User::factory()->create([
+        User::factory()->create([
             'name' => 'Admin',
             'email' => 'admin@admin.com',
             'role' =>'admin',

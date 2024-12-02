@@ -6,12 +6,12 @@
             <label for="{{$id}}">{{ $label }}</label>
         @endif
         @if ($errors->has($name))
-            <textarea name="{{$name}}" id="{{$id}}" class="w-100 aspect-video mt-2 p-2 border rounded-lg border-danger" value="{{$value}}" placeholder="{{$placeholder}}"></textarea>
+            <textarea name="{{$name}}" id="{{$id}}" class="w-100 aspect-video mt-2 p-2 border rounded-lg border-danger" placeholder="{{$placeholder}}"></textarea>
         @else
             <textarea name="{{$name}}" id="{{$id}}" class="w-100 aspect-video mt-2 p-2" placeholder="{{$placeholder}}">{{$value}}</textarea>
         @endif
     </div>
-    @error('body')
+    @error($name)
         <p>{{ $message}}</p>
     @enderror
 </div>

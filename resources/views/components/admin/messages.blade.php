@@ -12,12 +12,12 @@
                 <th scope="col" class="col-3">Name</th>
                 <th scope="col" class="col-2">Email</th>
                 <th scope="col" class="col-2">Criado em</th>
-                <th scope="col" class="col-2">Ações</th>
+                <th scope="col" class="col-2">Ver mais</th>
               </tr>
             </thead>
             <tbody>
-                @foreach ($subs as $sub )
-                    <x-tableRowUser name="{{$sub->name}}" email="{{$sub->email}}" data="{{ $sub->created_at}}"/>
+                @foreach ($messages as $message )
+                    <x-tableRowUser name="{{$message->name}}" email="{{$message->email}}" data="{{ $message->created_at}}"/>
                 @endforeach
             </tbody>
         </table>

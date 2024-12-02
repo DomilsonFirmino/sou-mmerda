@@ -33,6 +33,7 @@
               <x-navadmin href="dashboard/subscrivers">Subscrivers</x-navadmin>
               <x-navadmin href="dashboard/cursos">Cursos</x-navadmin>
               <x-navadmin href="dashboard/eventos">Eventos</x-navadmin>
+              <x-navadmin href="dashboard/messages">Messages</x-navadmin>
             </ul>
             <hr>
             <div class="dropdown">

@@ -12,7 +12,6 @@ class CursoController extends Controller
 {
     public function index(){
         $this->redirect();
-
         $cursos = Curso::with('user')->latest()->get();
         return view("components.admin.cursos",['cursos'=>$cursos]);
     }
@@ -37,7 +36,8 @@ class CursoController extends Controller
         ]);
 
         $pathLogo = $request->img->store('cursos/imagens');
-        $pathPrograma = $request->programa->store('cursos/pdf');
+
+        $pathPrograma = $request->programa->storeAs('cursos/pdf',"Programa para o ".$request->name);
 
         $user = User::find(Auth::user()->id);
 
@@ -60,6 +60,8 @@ class CursoController extends Controller
     }
 
     public function edit(Curso $curso){
+
+        $this->redirect();
         return view("components.admin.cursosedit",['curso'=>$curso]);
     }
 
@@ -82,7 +84,7 @@ class CursoController extends Controller
 
         $pdf = public_path("storage\\$curso->programa");
         $img = public_path("storage\\$curso->img");
-    
+
         File::delete($pdf);
         File::delete($img);
 
@@ -114,7 +116,7 @@ class CursoController extends Controller
 
         $pdf = public_path("storage\\$curso->programa");
         $img = public_path("storage\\$curso->img");
-    
+
         File::delete($pdf);
         File::delete($img);
 

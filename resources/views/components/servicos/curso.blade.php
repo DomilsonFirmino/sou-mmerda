@@ -14,7 +14,6 @@
                 <p><span>Duração:</span> {{ $curso->carga}} horas </p>
                 <p><span>Certificado por: </span>{{ $curso->certificado }}</p>
                 <a href="/servicos/formacao">Voltar</a>
-                <a href="{{$curso->url}}" class="link-secondary"></a>
             </div>
             <div class="col-sm">
 

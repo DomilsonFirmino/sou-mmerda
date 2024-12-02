@@ -12,5 +12,3 @@
 
     <section id="sep"></section>
 </section>
-
-
