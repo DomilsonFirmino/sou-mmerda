@@ -8,8 +8,6 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Mail;
 
-use function PHPUnit\Framework\isEmpty;
-
 class SubscriberController extends Controller
 {
 
@@ -69,6 +67,7 @@ class SubscriberController extends Controller
     }
 
     public function destroy(Subscriber $subscriber){
+        $this->redirect();
         $subscriber->delete();
         return redirect("/dashboard/subscrivers");
     }

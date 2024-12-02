@@ -1,7 +1,7 @@
 <x-layoutAdmin>
 
     <x-heading>
-        Subscrivers
+        Mensagens
     </x-heading>
 
     <div class="table-responsive-sm mt-5" style="margin-right: 1.5rem">
@@ -17,7 +17,7 @@
             </thead>
             <tbody>
                 @foreach ($messages as $message )
-                    <x-tableRowUser name="{{$message->name}}" email="{{$message->email}}" data="{{ $message->created_at}}"/>
+                    <x-tableRowMessage name="{{$message->name}}" email="{{$message->email}}" id="{{$message->id}}" criado="{{ $message->created_at}}"/>
                 @endforeach
             </tbody>
         </table>

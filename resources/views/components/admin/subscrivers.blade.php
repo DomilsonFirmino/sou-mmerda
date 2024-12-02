@@ -1,7 +1,10 @@
+@section('title')
+    {{ " | Dashboard - inscritos"}}
+@endsection
 <x-layoutAdmin>
 
     <x-heading>
-        Subscrivers
+        Inscritos
     </x-heading>
 
     <div class="table-responsive-sm mt-5" style="margin-right: 1.5rem">
@@ -17,7 +20,7 @@
             </thead>
             <tbody>
                 @foreach ($subs as $sub )
-                    <x-tableRowUser name="{{$sub->name}}" email="{{$sub->email}}" data="{{ $sub->created_at}}"/>
+                    <x-tableRowSubs name="{{$sub->name}}" email="{{$sub->email}}" data="{{ $sub->created_at}}" id="{{$sub->id}}"/>
                 @endforeach
             </tbody>
         </table>

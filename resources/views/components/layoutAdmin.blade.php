@@ -30,7 +30,7 @@
             <ul class="nav nav-pills flex-column mb-auto">
               <x-navadmin href="dashboard">Overview</x-navadmin>
               <x-navadmin href="dashboard/users" class="nav-link link-dark">Users</x-navadmin>
-              <x-navadmin href="dashboard/subscrivers">Subscrivers</x-navadmin>
+              <x-navadmin href="dashboard/subscrivers">Inscritos</x-navadmin>
               <x-navadmin href="dashboard/cursos">Cursos</x-navadmin>
               <x-navadmin href="dashboard/eventos">Eventos</x-navadmin>
               <x-navadmin href="dashboard/messages">Messages</x-navadmin>

@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\CursoController;
 use App\Http\Controllers\EventoController;
+use App\Http\Controllers\MessagueController;
 use App\Http\Controllers\SubscriberController;
 use App\Models\Curso;
 use App\Models\Messague;
@@ -15,9 +16,11 @@ Route::get("/dashboard", function(){
         return redirect("/");
     }
     $user = User::where('role','user')->latest()->get();
-    $subs = Subscriber::all();
-    $cursos = Curso::with('user')->get();
-    return view("components.admin.home",['users'=>$user,'subs'=>$subs, 'cursos'=>$cursos,'eventos'=>$cursos]);
+    $subs = Subscriber::query()->latest()->get();
+    $cursos = Curso::with('user')->latest()->get();
+    $eventos = Curso::with('user')->latest()->get();
+    $messages = Messague::query()->latest()->get();
+    return view("components.admin.home",['users'=>$user,'subs'=>$subs, 'cursos'=>$cursos,'eventos'=>$eventos,'messages'=>$messages]);
 })->middleware('auth');
 
 Route::get("/dashboard/users", function(){
@@ -31,18 +34,12 @@ Route::get("/dashboard/users", function(){
 
 
 Route::get("/dashboard/subscrivers", [SubscriberController::class,'index'])->middleware('auth');
-Route::delete("/dashboard/subscrivers/{subscriber}", [Subscriber::class,'destroy'])->middleware('auth');
+Route::delete("/dashboard/subscrivers/{subscriber}", [SubscriberController::class,'destroy'])->middleware('auth');
 
 
-Route::get("/dashboard/messages", function(){
-    if(Auth::user()->role !== "admin"){
-        return redirect("/");
-    }
-
-    $messages = Messague::query()->latest()->get();
-    return view("components.admin.messages",['messages'=>$messages]);
-
-})->middleware('auth');
+Route::get("/dashboard/messages", [MessagueController::class, 'index'])->middleware('auth');
+Route::get("/dashboard/messages/{messague}",[MessagueController::class, 'show'])->middleware('auth');
+Route::delete("/dashboard/messages/{messague}",[MessagueController::class, 'destroy'])->middleware('auth');
 
 Route::get("/dashboard/cursos",[CursoController::class,'index'])->middleware('auth');
 Route::get("/dashboard/cursos/create",[CursoController::class,'create'])->middleware('auth');
