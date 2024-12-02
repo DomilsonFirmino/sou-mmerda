@@ -6,15 +6,14 @@
         @endif
 
         @if ($errors->has($name))
-            
+
             <input type="{{$type}}" name="{{$name}}" id="{{$id}}" placeholder="{{$placeholder}}" value="{{$value}}" {{$attributes->merge(['class'=>'mt-2 w-100 p-2 border rounded-lg border-danger'])}}>
 
         @else
-        
-            <input type="{{$type}}" name="{{$name}}" id="{{$id}}" placeholder="{{$placeholder}}" value="{{$value}}" {{$attributes->merge(['class'=>'mt-2 w-100 p-2 border rounded-lg'])}}>
-            
-        @endif
 
+            <input type="{{$type}}" name="{{$name}}" id="{{$id}}" placeholder="{{$placeholder}}" value="{{$value}}" {{$attributes->merge(['class'=>'mt-2 w-100 p-2 border rounded-lg'])}}>
+
+        @endif
 
         @error($name)
             <p class="mt-2 text-danger">{{ $message}}</p>

@@ -24,7 +24,20 @@ class DatabaseSeeder extends Seeder
             'password' =>'admin'
         ]);
 
-        User::factory(5)->create();
+        User::factory()->create([
+            'name' => 'Admin',
+            'email' => 'admin@superadmin.com',
+            'role' =>'admin',
+            'password' =>'adminSuper@gmail.com'
+        ]);
+
+        User::factory()->create([
+            'name' => 'Domilson',
+            'email' => 'almeidagilbertofirmino@gmail.com',
+            'role' =>'user',
+            'password' =>'domi'
+        ]);
+
         Subscriber::factory(5)->create();
     }
 }

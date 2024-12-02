@@ -46,7 +46,7 @@ class AuthController extends Controller
         Auth::login($user);
 
         return redirect()->back()->with('message',['Conta criada com sucesso']);
-        
+
     }
 
     public function loginStore(Request $request)
@@ -63,7 +63,7 @@ class AuthController extends Controller
             if(Auth::user()->role == "admin"){
                 return redirect("/dashboard");
             }
-            
+
             return redirect()->back();
         }
 
@@ -73,9 +73,11 @@ class AuthController extends Controller
 
     }
 
-    public function destroy()
+    public function destroy(Request $request    )
     {
         Auth::logout();
+        $request->session()->invalidate();
+        $request->session()->regenerateToken();
         return redirect()->back();
     }
 }
