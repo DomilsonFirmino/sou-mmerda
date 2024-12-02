@@ -20,7 +20,7 @@
             </thead>
             <tbody>
                 @foreach ($subs as $sub )
-                    <x-tableRowSubs name="{{$sub->name}}" email="{{$sub->email}}" data="{{ $sub->created_at}}" id="{{$sub->id}}"/>
+                    <x-tableRowSubs name="{{$sub->id}}" email="{{$sub->email}}" data="{{ $sub->created_at}}" id="{{$sub->id}}"/>
                 @endforeach
             </tbody>
         </table>

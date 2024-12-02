@@ -15,13 +15,15 @@
             <x-headingtwo>
                 Descrição
             </x-headingtwo>
-            <div>
+
+            <p class="mt-5">{{ $evento->body }}</p>
+
+            <div class="mt-5">
                 <p><span>Inicio:</span> {{ $evento->data_de_inicio}}</p>
                 <p><span>Fim:</span> {{ $evento->data_de_fim}}</p>
             </div>
 
 
-            <p>{{ $evento->body }}</p>
         </div>
     </div>
     <div class="container mt-5">

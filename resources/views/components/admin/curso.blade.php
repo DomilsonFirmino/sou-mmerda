@@ -22,7 +22,6 @@
         </div>
 
         <div>
-            <p>{{ $curso->body }}</p>
             <a href="/dashboard/cursos/{{$curso->id}}/download">
                 Baixar programa
             </a>

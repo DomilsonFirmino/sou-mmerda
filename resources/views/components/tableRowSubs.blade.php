@@ -1,4 +1,4 @@
-@props(['name', 'email','data','id'=>'id'])
+@props(['name', 'email','data','id'])
 <tr>
     <td>{{ $name }}</td>
     <td>{{ $email }}</td>
